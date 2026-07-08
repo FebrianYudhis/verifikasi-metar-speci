@@ -75,6 +75,36 @@ Untuk menjalankan aplikasi ini, Anda membutuhkan:
 4. Klik tombol **Verifikasi**.
 5. Notifikasi popup akan muncul memberitahu apakah METAR tersebut Valid atau jika Tidak Valid, bagian mana yang salah.
 
+## Penggunaan API (Public Endpoint)
+
+Aplikasi ini juga menyediakan antarmuka API (*Application Programming Interface*) terbuka agar bisa diintegrasikan dengan aplikasi lain (misalnya aplikasi seluler atau *dashboard* eksternal).
+
+**Endpoint URL**: `http://localhost/nama-folder-proyek/proses.php`  
+**Method**: `GET` atau `POST`
+
+**Contoh Permintaan (Request) via GET**:
+```text
+http://localhost/nama-folder-proyek/proses.php?sandi=METAR WIII 200300Z...
+```
+
+**Contoh Respons Berhasil (HTTP 200)**:
+```json
+{
+  "status": "success",
+  "message": "METAR Valid"
+}
+```
+
+**Contoh Respons Gagal (HTTP 400)**:
+```json
+{
+  "status": "error",
+  "message": "METAR Tidak Valid: Format Tulisan METAR Tidak Valid"
+}
+```
+
+> API ini sudah dilengkapi dengan pengaturan CORS (`Access-Control-Allow-Origin: *`), sehingga bisa langsung dipanggil (di-*fetch*) dari *frontend* mana saja menggunakan JavaScript `fetch()`, Axios, atau Postman.
+
 ## Struktur File
 
 - `index.php`: Halaman antarmuka utama (form input).

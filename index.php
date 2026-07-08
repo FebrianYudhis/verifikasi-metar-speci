@@ -28,7 +28,7 @@
                         <button type="button" class="btn-small" id="btnClear">Bersihkan</button>
                     </div>
                 </div>
-                <input type="text" class="form-control" id="metar" placeholder="Cth: METAR WAGS 080230Z 13007KT..." name="metar" required autocomplete="off" spellcheck="false">
+                <input type="text" class="form-control" id="metar" placeholder="Cth: METAR WAGS 080230Z 13007KT..." name="sandi" required autocomplete="off" spellcheck="false">
             </div>
             <button type="submit" class="btn">Validasi Sekarang</button>
         </form>
