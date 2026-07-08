@@ -5,6 +5,22 @@ Semua perubahan yang signifikan pada proyek ini akan didokumentasikan di file in
 Format changelog ini didasarkan pada [Keep a Changelog](https://keepachangelog.com/id/1.0.0/),
 dan proyek ini menganut [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-07-08
+
+### Added
+- **Peningkatan UX**: Penambahan fitur konversi huruf besar otomatis (*Auto-uppercase*) saat pengguna mengetik sandi.
+- **Peningkatan UX**: Tombol validasi kini memiliki animasi dan status *loading* saat sedang memproses data.
+- **Peningkatan UX**: Penambahan tombol utilitas mungil "Salin" (untuk menyalin teks ke *clipboard*) dan "Bersihkan" (untuk menghapus teks) di sudut kanan form input.
+- **API Backend**: File `proses.php` kini dapat diakses sebagai *Public Endpoint API* oleh aplikasi eksternal karena telah dibekali perlindungan CORS (`Access-Control-Allow-Origin: *`).
+- **API Backend**: API kini mendukung penerimaan data via method HTTP `GET` (melalui URL) di samping method `POST`.
+- **API Backend**: Implementasi balasan kode status HTTP (*HTTP Status Code*) standar seperti 200 OK, 400 Bad Request, dan 500 Server Error.
+- **Dokumentasi**: Menambahkan seksi panduan dan tata cara penggunaan API pada file `README.md`.
+
+### Changed
+- **Optimasi Form (AJAX)**: Pengiriman formulir kini dieksekusi secara asinkron (*background*) tanpa memuat ulang halaman (*no-reload*) menggunakan `fetch` API.
+- **Optimasi Variabel**: Mengubah nama parameter input form dan API dari `metar` menjadi `sandi` agar lebih fleksibel/umum untuk METAR maupun SPECI.
+- **Refactor PHP**: Menghapus total ketergantungan pada *Session PHP* (`session_start()`) karena arsitektur komunikasi antara *frontend* dan *backend* kini sepenuhnya *stateless* (berbasis JSON).
+
 ## [1.0.0] - 2026-07-08
 
 Ini adalah rilis awal (versi 1.0.0) dari Aplikasi Verifikasi METAR dan SPECI.
