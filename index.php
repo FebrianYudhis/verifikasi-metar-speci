@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -23,9 +19,15 @@ session_start();
             <p>Masukkan sandi laporan cuaca Anda di bawah ini</p>
         </div>
 
-        <form action="proses.php" method="post">
+        <form id="metarForm">
             <div class="form-group">
-                <label for="metar" class="form-label">Teks Sandi Laporan :</label>
+                <div class="label-row">
+                    <label for="metar" class="form-label">Teks Sandi Laporan :</label>
+                    <div class="utility-buttons">
+                        <button type="button" class="btn-small" id="btnCopy">Salin</button>
+                        <button type="button" class="btn-small" id="btnClear">Bersihkan</button>
+                    </div>
+                </div>
                 <input type="text" class="form-control" id="metar" placeholder="Cth: METAR WAGS 080230Z 13007KT..." name="metar" required autocomplete="off" spellcheck="false">
             </div>
             <button type="submit" class="btn">Validasi Sekarang</button>
@@ -40,15 +42,7 @@ session_start();
         </div>
     </div>
 
-    <?php if (isset($_SESSION['pesan'])) : ?>
-        <script>
-            // Pass the PHP session data to JavaScript variables safely
-            window.appMessage = <?= json_encode($_SESSION['pesan']) ?>;
-            window.appType = <?= json_encode($_SESSION['tipeAlert']) ?>;
-        </script>
-        <?php unset($_SESSION['pesan']); ?>
-        <?php unset($_SESSION['tipeAlert']); ?>
-    <?php endif; ?>
+
 
     <script src="script.js"></script>
 </body>
